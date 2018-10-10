@@ -1,7 +1,13 @@
 FROM library/openjdk:8-jdk
 
-ADD https://github.com/cyril-steimer/BudgetManagerBackend/releases/download/0.1.0/BudgetManagerBackend.jar /backend/BudgetManagerBackend.jar
+ENV version=0.2.0
 
+ADD https://github.com/cyril-steimer/BudgetManagerBackend/releases/download/v${version}/BudgetManagerBackend-${version}.jar /backend/BudgetManagerBackend.jar
+ADD https://github.com/cyril-steimer/BudgetManagerFrontend/releases/download/v${version}/dist.zip /frontend/dist.zip
+RUN cd /frontend && \
+    unzip dist.zip
+    
+ADD config.json /start/config.json
 ADD startup.sh /start/startup.sh
 RUN chmod +x /start/startup.sh
 

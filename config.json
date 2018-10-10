@@ -1,0 +1,10 @@
+{
+    "type": "mongoDb",
+    "serverConfig": {
+        "port": 8100,
+        "staticFiles": {
+            "staticFilesPath": "/frontend/dist",
+            "indexPage": "/frontend/dist/index.html"
+        }
+    }
+}
